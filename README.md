@@ -98,26 +98,24 @@
 
 ### 🌐 API Calls
 
-- **BASE ADDRESS** : `http:localhost:3000/`
+    BASE ADDRESS : `http:localhost:3000/`
 
 ⚠️ **Note**: API Endpoints postman files `User AUTH.postman_collection.json` and `Books CRUD.postman_collection.json` can be found in project main directory.
 
 The API endpoints use different `HTTP` methods(`GET`, `POST`, `PATCH`,`PUT`, `DELETE`) and follow `RESTful` design principles.
 
-The project provides a variety of API endpoints for different functionalities:
-
 ---
 
 - **Books CRUD**: Endpoints for books crud operations.
 
-  | HTTP Method | Endpoint             | Description                              | Data inside body                                                                                 | Data inside headers                                |
-  | :---------- | :------------------- | :--------------------------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------- |
-  | GET         | `/api/v1/books/ping` | `Check if the books API is live`         |                                                                                                  |                                                    |
-  | GET         | `/api/v1/books/?`    | `Get all books with and without filters` | ex: /api/v1/books/?author=Isaac Asimov&year=2020&sort=author_asc,title_desc,genere_desc,year_asc |                                                    |
-  | GET         | `/api/v1/books/:id`  | `Get a specific book by ID`              |                                                                                                  |                                                    |
-  | POST        | `/api/v1/books`      | `Add a new book`                         | {title: 'Book', publicationYear: '2018', genre: ''}                                              | x-access-token (JWT token after login)             |
-  | PATCH       | `/api/v1/books/:id`  | `Update a specific book by ID`           | {title: 'Book', publicationYear: '2018', genre: ''}                                              | x-access-token (JWT token after login)             |
-  | DELETE      | `/api/v1/books/:id`  | `Delete a specific book by ID`           | {role,userId}                                                                                    | x-access-token (JWT token after login) after login |
+  | HTTP Method | Endpoint             | Description                              | Data inside body                                                                                    | Data inside headers                                |
+  | :---------- | :------------------- | :--------------------------------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+  | GET         | `/api/v1/books/ping` | `Check if the books API is live`         |                                                                                                     |                                                    |
+  | GET         | `/api/v1/books/?`    | `Get all books with and without filters` | ex: /api/v1/books/ ?author=Isaac Asimov& year=2020& sort=author_asc,title_desc,genere_desc,year_asc |                                                    |
+  | GET         | `/api/v1/books/:id`  | `Get a specific book by ID`              |                                                                                                     |                                                    |
+  | POST        | `/api/v1/books`      | `Add a new book`                         | {title: 'Book', publicationYear: '2018', genre: ''}                                                 | x-access-token (JWT token after login)             |
+  | PATCH       | `/api/v1/books/:id`  | `Update a specific book by ID`           | {title: 'Book', publicationYear: '2018', genre: ''}                                                 | x-access-token (JWT token after login)             |
+  | DELETE      | `/api/v1/books/:id`  | `Delete a specific book by ID`           |                                                                                                     | x-access-token (JWT token after login) after login |
 
 ---
 
