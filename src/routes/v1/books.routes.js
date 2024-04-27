@@ -1,6 +1,6 @@
 const express = require('express');
 const { PingCheck, BooksController } = require('../../controllers');
-const { BooksMiddlewares } = require('../../middlewares');
+const { BooksMiddlewares, UserMiddlewares } = require('../../middlewares');
 
 
 
@@ -20,6 +20,8 @@ booksRouter.get('/ping', PingCheck('Books Controller is live...'));
 
 booksRouter.post('/',
     BooksMiddlewares.validateCreateRequest,
+    UserMiddlewares.checkAuth,
+    UserMiddlewares.isAdmin,
     BooksController.addBook);
 
 /**
@@ -42,14 +44,20 @@ booksRouter.get('/:id', BooksController.getBook);
  * Request Body -> { title:'Book', publicationYear:'2018', genere: '' }
  */
 
-booksRouter.patch('/:id', BooksController.updateBook);
+booksRouter.patch('/:id',
+    UserMiddlewares.checkAuth,
+    UserMiddlewares.isAdmin,
+    BooksController.updateBook);
 
 /**
  * DELETE Request : /api/v1/books/:id/
  * Request Body -> {}
  */
 
-booksRouter.delete('/:id', BooksController.deleteBook);
+booksRouter.delete('/:id',
+    UserMiddlewares.checkAuth,
+    UserMiddlewares.isAdmin,
+    BooksController.deleteBook);
 
 
 module.exports = booksRouter;
