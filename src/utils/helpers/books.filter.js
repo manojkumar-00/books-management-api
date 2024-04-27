@@ -4,22 +4,15 @@ const { Op } = require('sequelize');
 const generateCustomFilter = (query) => {
 
     let filterOptions = {
-        attributes: ['id', 'title', 'genere', 'publicationYear'],
-        include: [
-            {
-                model: Author,
-                as: "authors",
-                attributes: ['id', 'name', 'email', 'bio'],
-                required: true,
-                through: { attributes: [] },
-            }
-        ],
+        attributes: ['id', 'title', 'authorName', 'genere', 'publicationYear'],
         where: {}
     };
 
     if (query?.author) {
         if (query.author.length > 0) {
-            filterOptions.include[0].where = { name: query.author };
+            filterOptions.where.authorName = {
+                [Op.eq]: query.author
+            };
         }
     }
 
