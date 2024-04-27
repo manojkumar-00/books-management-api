@@ -1,5 +1,6 @@
 const express = require('express');
 const { PingCheck, BooksController } = require('../../controllers');
+const { BooksMiddlewares } = require('../../middlewares');
 
 
 
@@ -17,8 +18,9 @@ booksRouter.get('/ping', PingCheck('Books Controller is live...'));
  * Request Body -> { title:'Book', publicationYear:'2018', genere: '' }
  */
 
-booksRouter.post('/', BooksController.addBook);
-
+booksRouter.post('/',
+    BooksMiddlewares.validateCreateRequest,
+    BooksController.addBook);
 
 /**
  * Get Request : /api/v1/books/

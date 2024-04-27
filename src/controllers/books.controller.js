@@ -2,8 +2,7 @@
 const { BooksService } = require('../services');
 const { StatusCodes } = require('http-status-codes');
 const { SuccessResponse } = require('../utils/common/');
-const { NotImplementedError, AppError } = require('../errors');
-const BooksRepository = require('../repositories/books.repository');
+
 
 
 /**
@@ -14,12 +13,24 @@ const BooksRepository = require('../repositories/books.repository');
 async function addBook(req, res, next) {
 
     try {
-        throw new NotImplementedError('addBook');
+        const book = await BooksService.createBook({
+            title: req.body.title,
+            author: req.body.author,
+            publicationYear: req.body.publicationYear,
+            genere: req.body.genere
+        });
+
+        SuccessResponse.data = book;
+        SuccessResponse.message = "Successfully added book";
+        SuccessResponse.statusCode = StatusCodes.CREATED;
+
+        return res
+            .status(SuccessResponse.statusCode)
+            .json(SuccessResponse);
     }
     catch (error) {
         next(error);
     }
-
 }
 
 

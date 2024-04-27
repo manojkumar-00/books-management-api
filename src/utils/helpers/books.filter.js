@@ -4,13 +4,13 @@ const { Op } = require('sequelize');
 const generateCustomFilter = (query) => {
 
     let filterOptions = {
-        attributes: ['id', 'title', 'authorName', 'genere', 'publicationYear'],
+        attributes: ['id', 'title', 'author', 'genere', 'publicationYear'],
         where: {}
     };
 
     if (query?.author) {
         if (query.author.length > 0) {
-            filterOptions.where.authorName = {
+            filterOptions.where.author = {
                 [Op.eq]: query.author
             };
         }
