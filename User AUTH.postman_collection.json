@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "9d540a15-2e25-491e-81ce-15baf667c3e4",
+		"name": "User AUTH",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20662674"
+	},
+	"item": [
+		{
+			"name": "User Auth ping check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/v1/user/ping",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Anshika Tiwari",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "tiwariAnshika@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/user/register",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "manojkr@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/user/login",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check if user is admin",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtYW5vamtyQGdtYWlsLmNvbSIsImlhdCI6MTcxNDIzNTcyOCwiZXhwIjoxNzE0MzIyMTI4fQ.l-_FO7HgA4kYRuF5AVSGpCR584yRuqUqJYJie1vXrwY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{server_url}}/api/v1/user/admin",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "give admin privilege",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MCwiZW1haWwiOiJhZG1pbkB4eXouY29tIiwiaWF0IjoxNzE0MjM1MTgyLCJleHAiOjE3MTQzMjE1ODJ9.iUK1ZMt7B-CNpbJ9GoWsvvbAwC7lxnJlnzV1zO-vtiE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "userId",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/user/role",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"role"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "revoke admin privilege",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MCwiZW1haWwiOiJhZG1pbkB4eXouY29tIiwiaWF0IjoxNzE0MjM1MTgyLCJleHAiOjE3MTQzMjE1ODJ9.iUK1ZMt7B-CNpbJ9GoWsvvbAwC7lxnJlnzV1zO-vtiE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "userId",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/user/role",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"role"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

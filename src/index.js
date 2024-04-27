@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 
 const { ServerConfig, Logger } = require('./config');
 const { PingCheck } = require('./controllers');
-const { sequelize } = require('./models');
 const { IdentityReset, ErrorHandler } = require("./utils/");
+const { sequelize } = require('./models');
 const apiRouter = require('./routes');
 
 const app = express();
@@ -41,11 +41,14 @@ app.use(ErrorHandler);
 
 
 app.listen(ServerConfig.PORT, () => {
+
     console.log(`Server started at port ${ServerConfig.PORT}`);
 
     /**
-     * Resetting Identity column, NOTE: please run only in case of MSSQL 
+     * Node: below code is to reset identiy columns in sql server, uncomment only if you are using MSSQL.
      */
+
+    /*
     sequelize.authenticate()
         .then(() => {
             return IdentityReset();
@@ -59,4 +62,5 @@ app.listen(ServerConfig.PORT, () => {
             Logger.error({ message: "Database is not Connected!!!", error: error });
         });
 
+    */
 })
