@@ -1,3 +1,4 @@
 module.exports = {
-    BooksService: require('./books.service')
+    BooksService: require('./books.service'),
+    UserService: require('./user.service')
 }
