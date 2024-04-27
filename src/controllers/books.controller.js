@@ -13,7 +13,7 @@ const { NotImplementedError } = require('../errors');
 async function addBook(req, res, next) {
 
     try {
-        throw new NotImplementedError(`addBook service is not implemented`);
+        throw new NotImplementedError('addBook');
     }
     catch (error) {
         next(error);
@@ -32,7 +32,7 @@ async function addBook(req, res, next) {
 async function getAllBooks(req, res, next) {
 
     try {
-        throw new NotImplementedError(`getAllBooks service is not implemented`);
+        throw new NotImplementedError('getAllBooks');
     }
     catch (error) {
         next(error);
@@ -49,7 +49,7 @@ async function getAllBooks(req, res, next) {
 async function getBook(req, res, next) {
 
     try {
-        throw new NotImplementedError(`getBook service is not implemented`);
+        throw new NotImplementedError('getBook');
     }
     catch (error) {
         next(error);
@@ -65,7 +65,7 @@ async function getBook(req, res, next) {
 async function updateBook(req, res, next) {
 
     try {
-        throw new NotImplementedError(`updateBook service is not implemented`);
+        throw new NotImplementedError('updateBook');
     }
     catch (error) {
         next(error);
@@ -81,7 +81,7 @@ async function updateBook(req, res, next) {
 async function deleteBook(req, res, next) {
 
     try {
-        throw new NotImplementedError(`deleteBook service is not implemented`);
+        throw new NotImplementedError('deleteBook');
     }
     catch (error) {
         next(error);

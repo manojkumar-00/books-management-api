@@ -47,7 +47,7 @@ booksRouter.patch('/:id', BooksController.updateBook);
  * Request Body -> {}
  */
 
-booksRouter.delete('/', BooksController.deleteBook);
+booksRouter.delete('/:id', BooksController.deleteBook);
 
 
 module.exports = booksRouter;

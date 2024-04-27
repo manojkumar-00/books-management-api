@@ -1,0 +1,4 @@
+2024-04-27 12:44:43 : error : Database is not Connected!!! => [ SequelizeAccessDeniedError: Login failed for user 'manoj'. ]
+2024-04-27 12:45:09 : error : Error resetting identity seed: => [ SequelizeDatabaseError: Invalid object name 'Authors'. ]
+2024-04-27 12:45:09 : error : Error resetting identity seed: => [ SequelizeDatabaseError: Invalid object name 'Books'. ]
+2024-04-27 12:45:09 : error : Error resetting identity seed: => [ SequelizeDatabaseError: Invalid object name 'books_authors'. ]
