@@ -121,6 +121,8 @@ The API endpoints use different `HTTP` methods(`GET`, `POST`, `PATCH`,`PUT`, `DE
 
 - **User Authentication**: Endpoints for user registration, login, and authentication management.
 
+  ⚠️ **Note**: Manually add at least one admin role in userRoles table to perform all the api operations.
+
   | HTTP Method | Endpoint                | Description           | Data inside body                                       | Data inside headers                                |
   | :---------- | :---------------------- | :-------------------- | ------------------------------------------------------ | -------------------------------------------------- |
   | GET         | `/api/v1/user/ping`     | `API is live or not`  |                                                        |                                                    |
