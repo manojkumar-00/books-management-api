@@ -18,10 +18,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    authorId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
     publicationYear: {
       type: DataTypes.INTEGER,
       allowNull: false

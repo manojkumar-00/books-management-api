@@ -1,7 +1,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const { ServerConfig } = require('./config');
+const { ServerConfig, Logger } = require('./config');
 const { PingCheck } = require('./controllers');
 const { sequelize } = require('./models');
 const { IdentityReset, ErrorHandler } = require("./utils/");
