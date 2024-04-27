@@ -35,4 +35,5 @@ app.use(
 
 app.listen(ServerConfig.PORT, () => {
     console.log(`Server started at port ${ServerConfig.PORT}`);
+
 })
