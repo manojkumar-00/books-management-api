@@ -38,3 +38,8 @@
 2024-04-27 18:43:58 : error : Something went wrong fetching books => [ SequelizeDatabaseError ]
 2024-04-27 18:45:19 : error : Something went wrong fetching books => [ SequelizeDatabaseError ]
 2024-04-27 18:45:53 : error : Something went wrong fetching books => [ SequelizeDatabaseError: Invalid column name 'author'. ]
+2024-04-27 20:08:55 : error : Something went wrong deleting book => [ APP-ERROR ]
+2024-04-27 20:09:25 : error : Something went wrong deleting book => [ APP-ERROR ]
+2024-04-27 20:36:34 : error : Something went wrong fetching books => [ SequelizeDatabaseError: Invalid column name 'author'. ]
+2024-04-27 20:37:43 : error : Something went wrong fetching book => [ TypeError: author.getBook is not a function ]
+2024-04-27 20:52:59 : error : Something went wrong doing validation => [ SequelizeValidationError: notNull Violation: Book.author cannot be null ]

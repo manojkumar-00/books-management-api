@@ -10,10 +10,13 @@
   "author": "Manoj Kumar",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
     "http-status-codes": "^2.3.0",
+    "jsonwebtoken": "^9.0.2",
     "pluralize": "^8.0.0",
     "sequelize": "^6.37.3",
     "sequelize-cli": "^6.6.2",
