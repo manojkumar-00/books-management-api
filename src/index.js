@@ -3,6 +3,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { ServerConfig } = require('./config');
 const { PingCheck } = require('./controllers');
+const { sequelize } = require('./models');
+const { IdentityReset, ErrorHandler } = require("./utils/");
+
 const apiRouter = require('./routes');
 
 const app = express();
@@ -32,8 +35,27 @@ app.use(
     apiRouter
 );
 
+//last middleware for handling errors
+app.use(ErrorHandler);
+
 
 app.listen(ServerConfig.PORT, () => {
     console.log(`Server started at port ${ServerConfig.PORT}`);
+
+    /**
+     * Resetting Identity column, NOTE: please run only in case of MSSQL 
+     */
+    sequelize.authenticate()
+        .then(() => {
+            return IdentityReset();
+        })
+        .then(() => {
+            console.log("Succes: Identity seed reset successfull");
+        })
+        .catch(error => {
+            console.log('Identity seed reset -- failed -- for all models');
+            console.error('Database is not connected:', error);
+            Logger.error({ message: "Database is not Connected!!!", error: error });
+        });
 
 })
