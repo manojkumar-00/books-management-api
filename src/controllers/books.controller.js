@@ -82,7 +82,21 @@ async function getBook(req, res, next) {
 async function updateBook(req, res, next) {
 
     try {
-        throw new NotImplementedError('updateBook');
+
+        const book = await BooksService.updateBook(req.params.id, {
+            title: req.body.title,
+            publicationYear: req.body.publicationYear,
+            genere: req.body.genere
+        });
+
+        SuccessResponse.data = book;
+        SuccessResponse.message = "Successfully updated book";
+        SuccessResponse.statusCode = StatusCodes.OK;
+
+        return res
+            .status(SuccessResponse.statusCode)
+            .json(SuccessResponse);
+
     }
     catch (error) {
         next(error);
@@ -98,7 +112,14 @@ async function updateBook(req, res, next) {
 async function deleteBook(req, res, next) {
 
     try {
-        throw new NotImplementedError('deleteBook');
+        const book = await BooksService.destroyBook(req.params.id);
+        SuccessResponse.data = [];
+        SuccessResponse.message = "Successfully deleted book";
+        SuccessResponse.statusCode = StatusCodes.OK;
+
+        return res
+            .status(SuccessResponse.statusCode)
+            .json(SuccessResponse);
     }
     catch (error) {
         next(error);

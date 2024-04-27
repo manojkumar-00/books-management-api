@@ -33,11 +33,7 @@ class CrudRepository {
 
     async get(id) {
 
-        const author = await this.model.findByPk(1); // Find an author by primary key (ID)
-        console.log(author);
-        const books = await author.getBook(); // Get all books associated with the author
-        console.log(books);
-
+        const response = await this.model.findByPk(id); // Find an author by primary key (ID)
 
         if (!response) {
             throw new AppError(StatusCodes.NOT_FOUND);
@@ -63,7 +59,7 @@ class CrudRepository {
             throw new AppError(StatusCodes.NOT_FOUND);
         }
 
-        return response;
+        return await this.model.findByPk(key);
 
     }
 }
