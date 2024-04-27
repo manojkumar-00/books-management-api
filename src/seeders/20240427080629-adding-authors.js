@@ -24,14 +24,14 @@ module.exports = {
       {
         name: 'George R.R. Martin',
         email: 'george.martin@example.com',
-        bio: 'American author, best known for the "A Song of Ice and Fire" series.',
+        bio: `American author, best known for the "A Song of Ice and Fire" series.`,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         name: 'J.R.R. Tolkien',
         email: 'tolkien@example.com',
-        bio: 'British author, best known for "The Lord of the Rings" series.',
+        bio: `British author, best known for "The Lord of the Rings" series.`,
         createdAt: new Date(),
         updatedAt: new Date(),
       },

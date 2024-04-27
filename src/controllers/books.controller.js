@@ -1,8 +1,9 @@
 
-const { } = require('../services');
+const { BooksService } = require('../services');
 const { StatusCodes } = require('http-status-codes');
 const { SuccessResponse } = require('../utils/common/');
-const { NotImplementedError } = require('../errors');
+const { NotImplementedError, AppError } = require('../errors');
+const BooksRepository = require('../repositories/books.repository');
 
 
 /**
@@ -32,7 +33,15 @@ async function addBook(req, res, next) {
 async function getAllBooks(req, res, next) {
 
     try {
-        throw new NotImplementedError('getAllBooks');
+        const books = await BooksService.getAllBooks(req.query);
+
+        SuccessResponse.data = books;
+        SuccessResponse.message = "Successfully fetched book";
+        SuccessResponse.statusCode = StatusCodes.OK;
+
+        return res
+            .status(SuccessResponse.statusCode)
+            .json(SuccessResponse);
     }
     catch (error) {
         next(error);
@@ -49,7 +58,15 @@ async function getAllBooks(req, res, next) {
 async function getBook(req, res, next) {
 
     try {
-        throw new NotImplementedError('getBook');
+        const book = await BooksService.getBook(req.params.id);
+
+        SuccessResponse.data = book;
+        SuccessResponse.message = "Successfully fetched book";
+        SuccessResponse.statusCode = StatusCodes.OK;
+
+        return res
+            .status(SuccessResponse.statusCode)
+            .json(SuccessResponse);
     }
     catch (error) {
         next(error);

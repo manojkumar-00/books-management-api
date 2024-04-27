@@ -2,6 +2,7 @@ const { BooksRepository } = require('../repositories');
 const { AppError, InternalServerError } = require('../errors/');
 const { StatusCodes } = require('http-status-codes');
 const { Logger } = require('../config');
+const { generateCustomFilter } = require('../utils/helpers/books.filter');
 
 
 let booksRepository = new BooksRepository();
@@ -31,15 +32,23 @@ async function createBook(data) {
 }
 
 
-async function getAllBooks(filter) {
+async function getAllBooks(query) {
 
     try {
-        const books = await booksRepository.getAll();
+        const filter = generateCustomFilter(query);
+        const books = await booksRepository.getAll(filter);
         return books;
-
     } catch (error) {
 
         Logger.error({ message: "Something went wrong fetching books", error: error });
+
+        if (error.statusCode == StatusCodes.NOT_FOUND) {
+
+            throw new AppError(error.statusCode, "No matching records found",
+                ['No books found for the given author or publication year']
+            );
+        }
+
         throw new InternalServerError("Cannot get the books");
     }
 }
@@ -49,6 +58,7 @@ async function getBook(id) {
     try {
 
         const book = await booksRepository.get(id);
+
         return book;
 
     } catch (error) {

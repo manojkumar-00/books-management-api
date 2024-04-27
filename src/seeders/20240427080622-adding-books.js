@@ -15,7 +15,7 @@ module.exports = {
 
     await queryInterface.bulkInsert('Books', [
       {
-        title: 'Harry Potter and the Philosopher\'s Stone',
+        title: `Harry Potter and the Philosopher's Stone`,
         publicationYear: 1997,
         genere: 'Fantasy',
         createdAt: new Date(),
