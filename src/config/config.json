@@ -14,17 +14,31 @@
     }
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mssql"
+    "username": "books-db_owner",
+    "password": "pDtgNeRj8SU0",
+    "database": "books-db",
+    "host": "ep-holy-cherry-a552wtut.us-east-2.aws.neon.tech",
+    "dialect": "postgres",
+    "logging":false,
+    "dialectOptions": {
+      "ssl": {
+        "require": true,     
+        "rejectUnauthorized": false 
+      }
+    }
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mssql"
+    "username": "books-db_owner",
+    "password": "pDtgNeRj8SU0",
+    "database": "books-db",
+    "host": "ep-holy-cherry-a552wtut.us-east-2.aws.neon.tech",
+    "dialect": "postgres",
+    "logging":false,
+    "dialectOptions": {
+      "ssl": {
+        "require": true,     
+        "rejectUnauthorized": false 
+      }
+    }
   }
 }
