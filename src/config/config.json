@@ -3,7 +3,7 @@
     "username": "books-db_owner",
     "password": "pDtgNeRj8SU0",
     "database": "books-db",
-    "host": "ep-holy-cherry-a552wtut.us-east-2.aws.neon.tech",
+    "host": "ep-holy-cherry-a552wtut-pooler.us-east-2.aws.neon.tech",
     "dialect": "postgres",
     "logging":false,
     "dialectOptions": {
