@@ -39,7 +39,6 @@ async function getAllBooks(query) {
         const books = await booksRepository.getAll(filter);
         return books;
     } catch (error) {
-
         Logger.error({ message: "Something went wrong fetching books", error: error });
 
         if (error.statusCode == StatusCodes.NOT_FOUND) {
