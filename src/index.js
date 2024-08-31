@@ -3,10 +3,9 @@ const express = require('express');
 const rateLimit = require('express-rate-limit');
 const bodyParser = require('body-parser');
 
-const { ServerConfig, Logger } = require('./config');
+const { ServerConfig } = require('./config');
 const { PingCheck } = require('./controllers');
-const { IdentityReset, ErrorHandler } = require("./utils/");
-const { sequelize } = require('./models');
+const { ErrorHandler } = require("./utils/");
 const apiRouter = require('./routes');
 
 const app = express();
@@ -23,7 +22,7 @@ app.use(bodyParser.raw());
 // Rate Limiter
 const limiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
-    limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).  
+    limit: 100000, // Limit each IP to 100 requests per `window` (here, per 15 minutes).  
 })
 
 app.use(limiter);
@@ -32,7 +31,7 @@ app.use(limiter);
  * Main Api Calls
  */
 
-app.get('/ping', PingCheck('API is live...'));
+app.get('/ping', PingCheck('Server is live...'));
 
 app.use('/api', apiRouter);
 
@@ -41,26 +40,5 @@ app.use(ErrorHandler);
 
 
 app.listen(ServerConfig.PORT, () => {
-
-    console.log(`Server started at port ${ServerConfig.PORT}`);
-
-    /**
-     * Node: below code is to reset identiy columns in sql server, uncomment only if you are using MSSQL.
-     */
-
-    /*
-    sequelize.authenticate()
-        .then(() => {
-            return IdentityReset();
-        })
-        .then(() => {
-            console.log("Succes: Identity seed reset successfull");
-        })
-        .catch(error => {
-            console.log('Identity seed reset -- failed -- for all models');
-            console.error('Database is not connected:', error);
-            Logger.error({ message: "Database is not Connected!!!", error: error });
-        });
-
-    */
+    console.log(`Server started at PORT:${ServerConfig.PORT}`);
 })

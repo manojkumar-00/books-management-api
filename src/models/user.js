@@ -48,10 +48,5 @@ module.exports = (sequelize, DataTypes) => {
     const encryptedPassword = bcrypt.hashSync(user.password, +ServerConfig.SALT_ROUNDS);//type casting through +
     user.password = encryptedPassword;
   });
-
-
   return User;
-
-
-
 };

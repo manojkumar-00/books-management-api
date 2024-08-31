@@ -13,14 +13,14 @@ module.exports = {
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
 
-    await queryInterface.addConstraint('Roles', {
-      name: 'CK_Roles_name',
-      fields: ['name'],
-      type: 'check',
-      where: {
-        name: [ADMIN, CUSTOMER]
-      }
-    });
+    // await queryInterface.addConstraint('Roles', {
+    //   name: 'CK_Roles_name',
+    //   fields: ['name'],
+    //   type: 'check',
+    //   where: {
+    //     name: [ADMIN, CUSTOMER]
+    //   }
+    // });
 
 
   },
@@ -33,6 +33,6 @@ module.exports = {
      * await queryInterface.dropTable('users');
      */
 
-    await queryInterface.removeConstraint('CK_Roles_name');
+    // await queryInterface.removeConstraint('CK_Roles_name');
   }
 };

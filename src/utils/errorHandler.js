@@ -1,6 +1,7 @@
 
 const BaseError = require("../errors/base.error");
 const { StatusCodes } = require('http-status-codes');
+const { Logger } = require('../config');
 
 const { ErrorResponse } = require('./common');
 
