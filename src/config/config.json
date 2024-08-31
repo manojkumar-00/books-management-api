@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "manoj-dev",
-    "password": "172617",
-    "database": "Books_DB",
-    "host": "127.0.0.1",
+    "username": "books_rg5s",
+    "password": "mAAQEa9Fzy0O1XDWo1zMh2vCBezHDrWw",
+    "database": "books_rg5s_user",
+    "host": "postgresql://books_rg5s_user:mAAQEa9Fzy0O1XDWo1zMh2vCBezHDrWw@dpg-cr9bu38gph6c73csuie0-a.oregon-postgres.render.com/books_rg5s",
     "dialect": "postgres",
     "logging":false
   },
