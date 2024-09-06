@@ -2,11 +2,11 @@
   "name": "book-management-api-task",
   "version": "1.0.0",
   "description": "A simple book management API using nodejs. API offers CRUD, auth and validations",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "dev": "node --watch src/index.js",
+    "dev": "node --watch src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node src/index.js"
+    "start":"node src/app.js"
   },
   "author": "Manoj Kumar",
   "license": "ISC",
